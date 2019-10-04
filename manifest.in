@@ -1,1 +1,2 @@
 include deepevent/data/DeepEventModel.json
+include deepevent/data/DeepEventWeight.h5
