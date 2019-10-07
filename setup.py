@@ -15,6 +15,7 @@ setup(
     url="",
     include_package_data=True,
     packages=find_packages(),
-    scripts=['deepevent/deepevent.py']
+    scripts=['deepevent/deepevent.py'],
+    install_requires=[argparse,keras,btk, numpy,scipy]
     
 )
