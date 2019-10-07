@@ -6,7 +6,7 @@ The method was developed from  10526 FS and 9375 FO from 226 children. _DeepEven
 
 ---
 ## Requirement
-Linux, Python 2.7, Keras, Tensorflow, Btk.
+Linux, Python 2.7, Keras, Tensorflow, Btk, Numpy, Scipy.
 
 ---
 ## Installation
@@ -18,5 +18,15 @@ Linux, Python 2.7, Keras, Tensorflow, Btk.
 where FilenameIn.c3d is the c3d file to identify gait events, FilenameOut.c3d is the new file with the gait events.
 
 ---
+## Next step
+Python 3.7, Windows
+
+---
 ## Contact
 [mathieu.lempereur@univ-brest.fr](mailto:mathieu.lemepreur@univ-brest.fr)
+Mathieu LEMPEREUR
+CHRU de Brest - Hopital Morvan
+Service MPR
+2 avenue Foch
+29609 BREST cedex
+FRANCE
