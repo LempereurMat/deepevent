@@ -10,7 +10,7 @@ Linux, Python 2.7, Keras, Tensorflow, Btk, Numpy, Scipy.
 
 ---
 ## Installation
-`pip install deepevent`
+`pip install deepevent==0.2`
 
 ---
 ## Running _DeepEvent_
