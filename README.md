@@ -23,10 +23,10 @@ Python 3.7, Windows
 
 ---
 ## Contact
-[mathieu.lempereur@univ-brest.fr](mailto:mathieu.lemepreur@univ-brest.fr)
-Mathieu LEMPEREUR
-CHRU de Brest - Hopital Morvan
-Service MPR
-2 avenue Foch
-29609 BREST cedex
+[mathieu.lempereur@univ-brest.fr](mailto:mathieu.lemepreur@univ-brest.fr)  
+Mathieu LEMPEREUR  
+CHRU de Brest - Hopital Morvan  
+Service MPR  
+2 avenue Foch  
+29609 BREST cedex  
 FRANCE
