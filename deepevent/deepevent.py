@@ -37,6 +37,10 @@ def compute(FilenameIn,FilenameOut):
 	reader.SetFilename(FilenameIn)
 	reader.Update()
 	acq = reader.GetOutput()
+
+	md = acq.GetMetaData()
+	SubjectInfo = md.FindChild("SUBJECTS").value().FindChild("NAMES").value().GetInfo()
+	SubjectValue = SubjectInfo.ToString()
 	
 	markers = ["LANK","RANK","LTOE","RTOE","LHEE","RHEE"]
 	nframes = 1536
@@ -76,6 +80,7 @@ def compute(FilenameIn,FilenameOut):
 		newEvent.SetLabel("Foot Strike")
 		newEvent.SetContext("Left")
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventLFS[ind_indice]/acq.GetPointFrequency()))
+		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(1)
 		acq.AppendEvent(newEvent)
 		
@@ -85,6 +90,7 @@ def compute(FilenameIn,FilenameOut):
 		newEvent.SetLabel("Foot Strike")
 		newEvent.SetContext("Right") 
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventRFS[ind_indice]/acq.GetPointFrequency()))
+		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(1)
 		acq.AppendEvent(newEvent)			
 
@@ -94,6 +100,7 @@ def compute(FilenameIn,FilenameOut):
 		newEvent.SetLabel("Foot Off")
 		newEvent.SetContext("Left") #
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventLFO[ind_indice]/acq.GetPointFrequency()))
+		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(2)
 		acq.AppendEvent(newEvent)			
 
@@ -103,6 +110,7 @@ def compute(FilenameIn,FilenameOut):
 		newEvent.SetLabel("Foot Off")
 		newEvent.SetContext("Right") #
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventRFO[ind_indice]/acq.GetPointFrequency()))
+		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(2)
 		acq.AppendEvent(newEvent)
 
