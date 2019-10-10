@@ -73,7 +73,7 @@ def compute(FilenameIn,FilenameOut):
 	eventLFS = np.argwhere(predicted_seuil_max[0,:,1])
     	for ind_indice in range(eventLFS.shape[0]):
 		newEvent=btk.btkEvent()
-		newEvent.SetLabel("FootStrike")
+		newEvent.SetLabel("Foot Strike")
 		newEvent.SetContext("Left")
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventLFS[ind_indice]/acq.GetPointFrequency()))
 		newEvent.SetId(1)
@@ -82,7 +82,7 @@ def compute(FilenameIn,FilenameOut):
 	eventRFS = np.argwhere(predicted_seuil_max[0,:,2])
 	for ind_indice in range(eventRFS.shape[0]):
 		newEvent=btk.btkEvent()
-		newEvent.SetLabel("FootStrike")
+		newEvent.SetLabel("Foot Strike")
 		newEvent.SetContext("Right") 
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventRFS[ind_indice]/acq.GetPointFrequency()))
 		newEvent.SetId(1)
@@ -91,7 +91,7 @@ def compute(FilenameIn,FilenameOut):
 	eventLFO = np.argwhere(predicted_seuil_max[0,:,3])
 	for ind_indice in range(eventLFO.shape[0]):
 		newEvent=btk.btkEvent()
-		newEvent.SetLabel("FootOff")
+		newEvent.SetLabel("Foot Off")
 		newEvent.SetContext("Left") #
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventLFO[ind_indice]/acq.GetPointFrequency()))
 		newEvent.SetId(2)
@@ -100,7 +100,7 @@ def compute(FilenameIn,FilenameOut):
 	eventRFO = np.argwhere(predicted_seuil_max[0,:,4])
 	for ind_indice in range(eventRFO.shape[0]):
 		newEvent=btk.btkEvent()
-		newEvent.SetLabel("FootOff")
+		newEvent.SetLabel("Foot Off")
 		newEvent.SetContext("Right") #
 		newEvent.SetTime((acq.GetFirstFrame()-1)/acq.GetPointFrequency() + float(eventRFO[ind_indice]/acq.GetPointFrequency()))
 		newEvent.SetId(2)
