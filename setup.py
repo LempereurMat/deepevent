@@ -12,7 +12,7 @@ setup(
     description="Deep Learning to identify gait events",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/LempereurMat/deepevent/archive/v0.1.tar.gz",
+    url="https://github.com/LempereurMat/deepevent/archive/v0.2.tar.gz",
     include_package_data=True,
     packages=find_packages(),
     scripts=['deepevent/deepevent.py'],
