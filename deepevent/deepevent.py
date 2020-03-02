@@ -15,7 +15,7 @@ def filter(acq,marker,fc):
 	# Butterworth filter
 	b, a = signal.butter(4, fc/(acq.GetPointFrequency()/2))
 	Mean = np.mean(marker,axis=0)
-	Minput = marker - mb.repmat(Mean,acq.GetPointFrameNumber(),1)	
+	Minput = marker - mb.repmat(Mean,acq.GetPointFrameNumber(),1)
 	Minput = signal.filtfilt(b,a,Minput,axis=0)
 	Moutput = Minput + np.matlib.repmat(Mean,acq.GetPointFrameNumber(),1)
 
@@ -24,7 +24,7 @@ def filter(acq,marker,fc):
 def derive_centre(marker,pfn,freq):
 	# Compute velocity
 
-	marker_der = (marker[2:pfn,:] - marker[0:(pfn-2),:]) / (2 / freq) 
+	marker_der = (marker[2:pfn,:] - marker[0:(pfn-2),:]) / (2 / freq)
 	marker_der = np.concatenate(([[0,0,0]],marker_der,[[0,0,0]]),axis=0)
 	return marker_der
 
@@ -57,14 +57,14 @@ def progressionframe(acq,marker="LANK"):
 	return globalFrame,forwardProgression
 
 
-def affectRotation(acq,marker,globalFrameOrientation,forwardProgression):
+def applyRotation(acq,marker,globalFrameOrientation,forwardProgression):
 
 	if globalFrameOrientation == "XYZ":
 		rot = np.array([[1,0,0],[0,1,0],[0,0,1]])
 	elif globalFrameOrientation == "YXZ":
 		rot = np.array([[0,1,0],[-1,0,0],[0,0,1]])
 	else:
-		raise Exception("[deepEvent] code cannot work with Z as non-normal axis")	
+		raise Exception("[deepEvent] code cannot work with Z as non-normal axis")
 
 	values = acq.GetPoint(marker).GetValues()
 
@@ -86,7 +86,7 @@ def save(acq, filename):
 	writer.Update()
 
 def read(filename):
-	reader = btk.btkAcquisitionFileReader() 
+	reader = btk.btkAcquisitionFileReader()
 	reader.SetFilename(filename)
 	reader.Update()
 	acq = reader.GetOutput()
@@ -104,9 +104,9 @@ def predict(load_model,acq,markers,pfn,freq):
 		inputs[0,0:pfn,k*3: (k + 1)*3] = filter(acq,values,6)
 		inputs[0,0:pfn,3 * len(markers) + k*3:3 * len(markers) +  (k + 1)*3] = derive_centre(inputs[0,:,k * 3:(k+1)*3],pfn,freq)
 
-	# Prediction with the model 
+	# Prediction with the model
 	predicted = load_model.predict(inputs) #shape[1,nb_frames,5] 0: no event, 1: Left Foot Strike, 2: Right Foot Strike, 3:Left Toe Off, 4: Right Toe Off
-	
+
 	#Threshold to set the gait events
 	predicted_seuil = predicted
 	for j in range(nframes):
@@ -118,7 +118,7 @@ def predict(load_model,acq,markers,pfn,freq):
 			predicted_seuil[0,j,3] = 0
 		if predicted[0,j,4] <= 0.01:
 			predicted_seuil[0,j,4] = 0
-	
+
 	predicted_seuil_max = np.zeros((1,nframes,5))
 	for j in range(1,5):
 		predicted_seuil_max[0,argrelextrema(predicted_seuil[0,:,j],np.greater)[0],j] = 1
@@ -130,13 +130,13 @@ def predict(load_model,acq,markers,pfn,freq):
 	eventRFS = np.argwhere(predicted_seuil_max[0,:,2])
 	eventLFO = np.argwhere(predicted_seuil_max[0,:,3])
 	eventRFO = np.argwhere(predicted_seuil_max[0,:,4])
-	
+
 	return eventLFS,eventRFS,eventLFO,eventRFO
 
 
 def main(args):
 
-	
+
 	json_file = open('./data/DeepEventModel.json','r')
 	loaded_model_json = json_file.read()
 	json_file.close()
@@ -147,11 +147,11 @@ def main(args):
 	filenameIn = args.input
 	if args.output is not None:
 		filenameOut = args.output
-	else: 
+	else:
 		filenameOut = args.input
-		logging.warning("[deepevent] input will be overwritten") 
+		logging.warning("[deepevent] input will be overwritten")
 
-	
+
 	acq0 = read(filenameIn)
 	acq0.ClearEvents()
 
@@ -163,12 +163,12 @@ def main(args):
 	md = acq0.GetMetaData()
 	SubjectInfo = md.FindChild("SUBJECTS").value().FindChild("NAMES").value().GetInfo()
 	SubjectValue = SubjectInfo.ToString()
-	
+
 	markers = ["LANK","RANK","LTOE","RTOE","LHEE","RHEE"]
 
 	globalFrame,forwardProgression = progressionframe(acq0)
 	for marker in markers:
-		affectRotation(acq0,marker,globalFrame,forwardProgression)
+		applyRotation(acq0,marker,globalFrame,forwardProgression)
 
 
 	eventLFS,eventRFS,eventLFO,eventRFO = predict(model,acq0,markers,pfn,freq)
@@ -181,15 +181,15 @@ def main(args):
 	    newEvent.SetSubject(SubjectValue[0])
 	    newEvent.SetId(1)
 	    acqF.AppendEvent(newEvent)
-		
+
 	for ind_indice in range(eventRFS.shape[0]):
 		newEvent=btk.btkEvent()
 		newEvent.SetLabel("Foot Strike")
-		newEvent.SetContext("Right") 
+		newEvent.SetContext("Right")
 		newEvent.SetTime((ff-1)/freq + float(eventRFS[ind_indice]/freq))
 		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(1)
-		acqF.AppendEvent(newEvent)			
+		acqF.AppendEvent(newEvent)
 
 	for ind_indice in range(eventLFO.shape[0]):
 		newEvent=btk.btkEvent()
@@ -198,8 +198,8 @@ def main(args):
 		newEvent.SetTime((ff-1)/freq + float(eventLFO[ind_indice]/freq))
 		newEvent.SetSubject(SubjectValue[0])
 		newEvent.SetId(2)
-		acqF.AppendEvent(newEvent)			
-	
+		acqF.AppendEvent(newEvent)
+
 	for ind_indice in range(eventRFO.shape[0]):
 		newEvent=btk.btkEvent()
 		newEvent.SetLabel("Foot Off")
@@ -212,12 +212,12 @@ def main(args):
 	save(acqF,filenameOut)
 
 if __name__ == "__main__":
-		
+
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-i','--input',help='* input c3d file',type=str)
 	parser.add_argument('-o','--output',help=' output c3d file with events',type=str)
 	args = parser.parse_args()
-	
+
 
 	main(args)
 
@@ -228,4 +228,3 @@ if __name__ == "__main__":
 	# args.FilenameIn= "Yaxis_walking.c3d"
 	# args.FilenameOut = "Yaxis_walking-OUT.c3d"
 	# compute(args.FilenameIn,args.FilenameOut)
-

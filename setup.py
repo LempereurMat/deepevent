@@ -16,6 +16,10 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     scripts=['deepevent/deepevent.py'],
-    install_requires=['argparse','keras','btk','numpy','scipy']
-    
+    install_requires=['tensorflow','keras','numpy','scipy','pyBTK'],
+    classifiers=['Programming Language :: Python',
+                 'Programming Language :: Python :: 3.7',
+                 'Operating System :: Microsoft :: Windows',
+                 'Natural Language :: English'],
+
 )
