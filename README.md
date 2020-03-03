@@ -7,11 +7,25 @@ The method was developed from  10526 FS and 9375 FO from 226 children. _DeepEven
 
 ---
 ## Requirement
-Windows, python3.7, Keras, Tensorflow, Btk, Numpy, Scipy
+
+
+Windows 64bits only, python3.7, Keras, Tensorflow, pyBtk, Numpy, Scipy
+
+All depedancies are available in pipy  
+
 
 ---
 ## Installation
-**NOT YET** `pip install deepevent==0.2`
+
+ - download source from my [fork](https://github.com/aaa34169/deepevent)
+ - unzip it
+ - open a console
+ - go to your local folder ( ie containing *setup.py*)
+ - type the command;
+ `python setup.py install`
+
+
+**NOT uploaded YET** `pip install deepevent==0.2`
 
 ---
 ## Running _DeepEvent_
@@ -27,11 +41,21 @@ In the last case, filenameIn.c3d is overwritten with gait events
 Lempereur M., Rousseau F., Rémy-Néris O., Pons C., Houx L., Quellec G., Brochard S. (2019). A new deep learning-based method for the detection of gait events in children with gait disorders: Proof-of-concept and concurrent validity. Journal of Biomechanics. Available online 9 November 2019. In Press, Corrected Proof. https://doi.org/10.1016/j.jbiomech.2019.109490.
 
 ---
-## Next step
-Python 3.7, Windows
 
 ---
 ## Contact
+
+[fabien.leboeuf@gmail.com](mailto:fabien.leboeuf@gmail.com)  
+Fabien Leboeuf
+Ingénieur "analyste du mouvement" du Pole 10, CHU Nantes, France
+Chercheur associé de l'Université de Salford, Manchester, Royaume uni
+
+Laboraratoire d'analyse du mouvement
+85 rue saint Jacques44093 Nantes, FRANCE
+
+--------------------
+**Original developer**
+
 [mathieu.lempereur@univ-brest.fr](mailto:mathieu.lemepreur@univ-brest.fr)  
 Mathieu LEMPEREUR  
 CHRU de Brest - Hopital Morvan  
