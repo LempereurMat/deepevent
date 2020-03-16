@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     scripts=['deepevent/deepevent.py'],
     install_requires=['tensorflow>=2.1.0',
-                      'keras>2.3.1',
+                      'keras>=2.3.1',
                       'numpy>=1.18.1',
                       'scipy>=1.4.1',
                       'pyBTK>=0.1.1'],

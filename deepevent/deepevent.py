@@ -11,7 +11,7 @@ import pdb
 import logging
 import numpy as np
 
-def filter(acq,marker,fc):s
+def filter(acq,marker,fc):
 	# Butterworth filter
 	b, a = signal.butter(4, fc/(acq.GetPointFrequency()/2))
 	Mean = np.mean(marker,axis=0)
