@@ -2,7 +2,7 @@
 import os
 import argparse
 from keras.models import model_from_json
-from pyBTK.btk3_64 import btk
+from pyBTK import btk
 import numpy as np
 from scipy import signal
 from scipy.signal import argrelextrema
@@ -11,7 +11,7 @@ import pdb
 import logging
 import numpy as np
 
-def filter(acq,marker,fc):
+def filter(acq,marker,fc):s
 	# Butterworth filter
 	b, a = signal.butter(4, fc/(acq.GetPointFrequency()/2))
 	Mean = np.mean(marker,axis=0)

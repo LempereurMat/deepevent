@@ -37,13 +37,13 @@ where FilenameIn.c3d is the c3d file to identify gait events, FilenameOut.c3d is
 
 In the last case, filenameIn.c3d is overwritten with gait events
 ---
-## Biliography
+## Bibliography
 Lempereur M., Rousseau F., Rémy-Néris O., Pons C., Houx L., Quellec G., Brochard S. (2019). A new deep learning-based method for the detection of gait events in children with gait disorders: Proof-of-concept and concurrent validity. Journal of Biomechanics. Available online 9 November 2019. In Press, Corrected Proof. https://doi.org/10.1016/j.jbiomech.2019.109490.
 
 ---
 
 ---
-## Contact
+## Contacts
 
 [fabien.leboeuf@gmail.com](mailto:fabien.leboeuf@gmail.com)  
 Fabien Leboeuf
