@@ -14,7 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     packages=find_packages(),
-    scripts=['deepevent/deepevent.py'],
+    scripts=['deepevent/deepevent_script.py'],
     install_requires=['tensorflow>=2.1.0',
                       'keras>=2.3.1',
                       'numpy>=1.18.1',

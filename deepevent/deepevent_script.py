@@ -1,4 +1,4 @@
-#!/usr/bin/python
+# coding: utf-8
 import os
 import argparse
 from keras.models import model_from_json
@@ -10,6 +10,7 @@ from numpy import matlib as mb
 import pdb
 import logging
 import numpy as np
+import deepevent
 
 def filter(acq,marker,fc):
 	# Butterworth filter
@@ -136,13 +137,13 @@ def predict(load_model,acq,markers,pfn,freq):
 
 def main(args):
 
-
-	json_file = open('./data/DeepEventModel.json','r')
+	import pdb; pdb.set_trace()
+	json_file = open(deepevent.DATA_PATH+'DeepEventModel.json','r')
 	loaded_model_json = json_file.read()
 	json_file.close()
 
 	model = model_from_json(loaded_model_json)
-	model.load_weights("./data/DeepEventWeight.h5")
+	model.load_weights(deepevent.DATA_PATH+"DeepEventWeight.h5")
 
 	filenameIn = args.input
 	if args.output is not None:
