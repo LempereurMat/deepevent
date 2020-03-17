@@ -1,2 +1,2 @@
-include ./data/DeepEventModel.json
-include ./data/DeepEventWeight.h5
+include data/DeepEventModel.json
+include data/DeepEventWeight.h5
