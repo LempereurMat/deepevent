@@ -1,4 +1,4 @@
-# DeepEvent
+# DeepEvent Version 0.3
 ---
 We propose a new application (_DeepEvent_) of long short term memory recurrent neural network to the automatic detection of gait events.
 The 3D position and velocity of the markers on the heel, toe and lateral malleolus were used by the network to determine Foot Strike (FS) and Foot Off (FO). 
