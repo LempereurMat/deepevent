@@ -1,4 +1,6 @@
+
 # DeepEvent forked by fabien LEBOEUF
+
 
 ---
 We propose a new application (_DeepEvent_) of long short term memory recurrent neural network to the automatic detection of gait events.
