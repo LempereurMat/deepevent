@@ -54,6 +54,6 @@ Fabien Leboeuf<br/>
 Ingénieur "analyste du mouvement" du Pole 10, CHU Nantes, France<br/>
 Chercheur associé de l'Université de Salford, Manchester, Royaume uni<br/>
 Laboraratoire d'analyse du mouvement<br/>
-85 rue saint Jacques<br/>4
-4093 Nantes<br/>
+85 rue saint Jacques<br/>
+44093 Nantes<br/>
 FRANCE
