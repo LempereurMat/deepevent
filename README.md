@@ -49,9 +49,19 @@ Service MPR
 FRANCE
 
 **Forked developer**
+<<<<<<< HEAD
 [fabien.leboeuf@gmail.com](mailto:fabien.leboeuf@gmail.com)<br/>
 Fabien Leboeuf<br/>
 Ingénieur "analyste du mouvement" du Pole 10, CHU Nantes, France<br/>
 Chercheur associé de l'Université de Salford, Manchester, Royaume uni<br/>
 Laboraratoire d'analyse du mouvement<br/>
+=======
+<<<<<<< HEAD
+[fabien.leboeuf@gmail.com](mailto:fabien.leboeuf@gmail.com)
+
+Fabien Leboeuf
+Ingénieur "analyste du mouvement" du Pole 10, CHU Nantes, France
+Chercheur associé de l'Université de Salford, Manchester, Royaume uni
+Laboraratoire d'analyse du mouvement
+>>>>>>> master
 85 rue saint Jacques44093 Nantes, FRANCE
