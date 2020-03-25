@@ -11,6 +11,7 @@ import pdb
 import logging
 import numpy as np
 import deepevent
+import requests
 
 def filter(acq,marker,fc):
 	# Butterworth filter
@@ -137,10 +138,14 @@ def predict(load_model,acq,markers,pfn,freq):
 
 def main(args):
 
-	import pdb; pdb.set_trace()
 	json_file = open(deepevent.DATA_PATH+'DeepEventModel.json','r')
 	loaded_model_json = json_file.read()
 	json_file.close()
+
+	url = 'https://drive.google.com/file/d/1w7LmluewzGbx5EK4V2TIXsUhE953-Oh3/view?usp=sharing'
+	r = requests.get(url)
+	with open(deepevent.DATA_PATH+"DeepEventWeight.h5", 'wb') as f:
+		f.write(r.content)
 
 	model = model_from_json(loaded_model_json)
 	model.load_weights(deepevent.DATA_PATH+"DeepEventWeight.h5")
