@@ -29,7 +29,7 @@ deepevent  -i FilenameIn.c3d -o FilenameOut.c3d
 deepevent  --input FilenameIn.c3d --output FilenameOut.c3d
 deepevent  --input FilenameIn.c3d
 ```
-where FilenameIn.c3d is the c3d file to identify gait events, FilenameOut.c3d is the new file with the gait events.
+where FilenameIn.c3d is the c3d file to identify gait events, FilenameOut.c3d is the new file with the gait events.  
 In the last case, filenameIn.c3d is overwritten with gait events
 
 ## Bibliography
