@@ -1,5 +1,7 @@
 # ChangeLog of _DeepEvent_
----
+**Version 0.3** - 25th March 2020
+
+
 **Version 0.2** - 10th October 2019
 
 
