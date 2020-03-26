@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="deepevent",
-    version="0.3",
+    version="0.3.3",
     author="Lempereur Mathieu",
     author_email="mathieu.lempereur@univ-brest.fr",
     description="Deep Learning to identify gait events",
@@ -15,7 +15,7 @@ setup(
     include_package_data=True,
     packages=find_packages(),
     scripts=['deepevent/deepevent_script.py'],
-    install_requires=['tensorflow>=2.1.0',
+    install_requires=['tensorflow>=2.0.0,<2.1.0',
                       'keras>=2.3.1',
                       'numpy>=1.18.1',
                       'scipy>=1.4.1',
