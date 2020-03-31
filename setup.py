@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="deepevent",
-    version="1.0",
+    version="0.4",
     author="Lempereur Mathieu",
     author_email="mathieu.lempereur@univ-brest.fr",
     description="Deep Learning to identify gait events",
