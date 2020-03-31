@@ -1,4 +1,4 @@
-# DeepEvent Version 0.3
+# DeepEvent Version 0.4
 
 
 
@@ -10,7 +10,7 @@ The method was developed from  10526 FS and 9375 FO from 226 children. _DeepEven
 ## Requirement
 
 
-Windows 64 bits only, python3.7, Keras, Tensorflow, pyBtk, Numpy, Scipy
+Windows 64 bits only, python3.7, Keras, Tensorflow, pyBtk, Numpy, Scipy, GoogleDriveDownloader
 
 All depedancies are available in pipy  
 
@@ -18,7 +18,7 @@ All depedancies are available in pipy
 
 ## Installation
 ```sh
-**NOT uploaded YET** pip install deepevent==0.3
+pip install deepevent==0.4
 ```
 
 
